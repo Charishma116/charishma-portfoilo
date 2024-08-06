@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karri Charishma - Portfolio</title>
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: hsl(0, 42%, 79%);
+        }
+
+        header {
+            background: #754e4e;
+            padding: 0;
+            border-bottom: 1px solid #785c5c;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 58px; /* Set the height of the navbar */
+            line-height: 48px; /* Align text vertically */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 100%; /* Full height of the navbar */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e8e3e3;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center; /* Center-align items vertically */
+            height: 100%; /* Full height of the navbar */
+        }
+
+        nav ul li {
+            margin-left: 20px;
+            position: relative; /* Position icons properly */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(248, 246, 246);
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #a91295;
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        #home {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 40px 40px;
+            background-color: #9f4e5d;
+            color: #FFFFFF;
+            margin-top: 48px; /* To account for fixed header height */
+        }
+
+        .content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #551121;
+            color: rgb(230, 221, 221);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ad8989;
+        }
+
+        .image-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 50%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .section {
+            padding: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .education-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .education-box {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid #cf9898;
+            border-radius: 10px;
+            background-color:#493d44;
+            color: rgb(218, 158, 158);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-box h2 {
+            margin-top: 0;
+            color: #f7f7f7;
+        }
+
+        .education-box p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background: #935858;
+            padding: 20px 0;
+            border-top: 1px solid #453939;
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin: 0;
+            font-size: 16px;
+            color: #985f5f;
+        }
+        #internships {
+    background-color: #fbebebae;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#internships h2 {
+    color: #64445d;
+    margin-bottom: 20px;
+}
+
+.internship-content {
+    background-color: #f2e5e1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.internship-content h3 {
+    color: #b53535;
+    margin-bottom: 10px;
+}
+
+.internship-content .date {
+    font-size: 14px;
+    color: #c48888;
+    margin-bottom: 10px;
+}
+
+.internship-content ul {
+    padding-left: 20px;
+}
+
+.internship-content li {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #a27e80;
+    font-weight: bold;
+}
+
+.tech-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tech-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    padding: 5px;
+    border-radius: 5px;
+}
+/* Projects Section */
+#Project h2 {
+    color: #432e3e;
+    margin-bottom: 20px;
+}
+.projects-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            border-top: 2px solid #f2e1e2;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .project-left, .project-right {
+            width: 45%;
+            padding: 20px;
+            border: 1px solid #c71e1ea1;
+            border-radius: 8px;
+            background-color: #e4c7c7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Open Sans', sans-serif; /* Regular font for content */
+        }
+
+        .divider {
+            width: 2px;
+            background-color: #E77577;
+            height: auto;
+            margin: 0 20px;
+        }
+
+        .project-left h2, .project-right h2 {
+            color: #e94b1b;
+            font-family: 'Patrick Hand', cursive;
+        }
+        #about-me {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #e89d9d;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.about-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.info-text {
+    max-width: 500px;
+}
+
+.info-text h2 {
+    margin-top: 0;
+}
+
+.technologies {
+    text-align: center;
+}
+
+.technologies h3 {
+    margin-bottom: 10px;
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tech-icon {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    object-fit: contain;
+}
+
+
+        
+         /* Import Handwriting Font */
+         @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Ch</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about-me">ABOUT</a></li>
+
+                    <li><a href="#education">EDUCATION</a></li>
+                    <li><a href="#internships">INTERNSHIPS</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
+
+                    <li><a href="https://github.com/Charishma116"><img src="https://toppng.com/uploads/preview/github-logo-png-hd-11659780003irpqkqwg3u.png" alt="GitHub" class="icon"></a></li>
+                    <li><a href="https://www.linkedin.com/in/charishma497/"><img src="https://cdn-icons-png.freepik.com/256/254/254394.png?semt=ais_hybrid" alt="LinkedIn" class="icon"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="content">
+                <h2>I'm Charishma</h2>
+                <p>This is my professional portfolio. Explore my work and experience. For contact details, please scroll down.</p>
+               
+                
+            </div>
+            <div class="image-container">
+                <img src="C:/Users/karri/Downloads/WhatsApp Image 2024-08-06 at 00.47.57_c8e80c30.jpg" alt="Karri Charishma">
+            </div>
+        </section>
+        <section id="about-me">
+            <div class="about-container">
+                <div class="about-info">
+                    <img src="C:\Users\karri\OneDrive\Desktop\portfoilo\images\WhatsApp Image 2024-08-06 at 12.49.42_e63c5640.jpg" alt="Charishma" class="profile-pic">
+                    <div class="info-text">
+                        <h2>About Me</h2>
+                        <p>Hello! I am Charishma, a final year student at GITAM University, passionate about becoming a full-stack developer and diving deep into machine learning. </p>
+                        <p>I am currently focusing on enhancing my skills in full-stack development and machine learning. These areas are crucial for building versatile applications and understanding complex data patterns. In 5 years, I want to become a blockchain developer and conduct research in blockchain and machine learning.</p>
+                        <p>I am also committed to developing my soft skills, teamwork abilities, and strengths. I believe that effective communication, collaboration, and problem-solving are essential for success in any tech role. </p>
+                    </div>
+                </div>
+                <div class="technologies">
+                    <h3>Technologies Known</h3>
+                    <div class="tech-icons">
+                        <img src="https://w7.pngwing.com/pngs/186/608/png-transparent-html5-icon-%E2%80%A2-html-social-network-icon-thumbnail.png" alt="HTML" class="tech-icon">
+                        <img src="https://www.shutterstock.com/image-illustration/stylized-3d-css-icon-design-260nw-2175814905.jpg" alt="CSS" class="tech-icon">
+                        <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/original/javascript-logo-javascript-icon-transparent-free-png.png" alt="JavaScript" class="tech-icon">
+                        <img src="https://www.svgrepo.com/show/303500/react-1-logo.svg" alt="React" class="tech-icon">
+                        <img src="https://i.pinimg.com/564x/36/6a/3f/366a3f497b653f18e354f25bd4dd0dce.jpg" alt="Java" class="tech-icon">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY96BPkBqp2Z_gQdUVHpNh38YPdgP28F00yg&s" alt="SQL" class="tech-icon">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="education" class="section">
+            <div class="education-container">
+                <div class="education-box">
+                    <h2>Bachelor of Technology</h2>
+                    <p><strong>Specialization:</strong> Computer Science and Engineering</p>
+                    <p><strong>Institute:</strong> Gandhi Institute of Technology and Management, Visakhapatnam</p>
+                    <p><strong>CGPA:</strong> 7.23 (2021-25)</p>
+                </div>
+                <div class="education-box">
+                    <h2>Intermediate (MPC)</h2>
+                    <p><strong>Institute:</strong> Tirumala Junior College</p>
+                    <p><strong>CGPA:</strong> 9.07 (2018-20)</p>
+                </div>
+                <div class="education-box">
+                    <h2>School</h2>
+                    <p><strong>Institute:</strong> Vijnana Vihara Residential School</p>
+                    <p><strong>Percentage:</strong> 70%</p>
+                    <p><strong>Board:</strong> CBSE (2017-2018)</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="internships" class="section">
+            <h2 allign = "center">Autonomous Drone Navigation(NIT-CALICUT)</h2>
+            
+            <div class="tech-icons">
+                <img src="data:image/jpeg;base64,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" alt="MATLAB" class="tech-icon" title="MATLAB">
+                <img src="https://www.theconstruct.ai/wp-content/uploads/2015/10/rosLarge.png" alt="ROS" class="tech-icon" title="Robot Operating System">
+                <img src="https://media.licdn.com/dms/image/D4E12AQF17hmfJHOmwA/article-cover_image-shrink_600_2000/0/1710030475905?e=2147483647&v=beta&t=h2P_g-u_5excitilCukOEMwco_RrMRHoV75RotGQgVU" alt="AI Algorithms" class="tech-icon" title="AI Algorithms">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wEXyMCvHx9K6dSK9IzjX-oUyTkKsiQtldw&s" alt="LIDAR" class="tech-icon" title="LIDAR">
+                <img src="https://e7.pngegg.com/pngimages/53/278/png-clipart-gps-navigation-systems-computer-icons-logo-others-logo-sign-thumbnail.png" alt="GPS" class="tech-icon" title="GPS">
+            </div>
+            
+            <div class="internship-content">
+                <h2>FINDING PATH AND NAVIGATION FOR AUTONOMOUS DRONE APPLICATIONS</h2>
+                <p class="date">Internship Duration: [08-6-2024] - [10-07-2024]</p>
+                <p>
+                    Developed a system for autonomous drone navigation and path planning in dynamic environments.
+                </p>
+                <ul>
+                    <li>Implemented path planning and navigation for autonomous drones using <span class="highlight">RRT*</span> and <span class="highlight">Dijkstra's algorithm</span> in <span class="highlight">MATLAB</span>, allowing the drone to move dynamically and avoid randomly moving obstacles.</li>
+                    <li>Integrated <span class="highlight">LIDAR sensors</span> and <span class="highlight">GPS</span> for real-time obstacle avoidance and navigation.</li>
+                    <li>Worked with <span class="highlight">ROS (Robot Operating System)</span> to develop and implement the solution, resulting in efficient and autonomous drone operation in complex environments.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="projects" class="section">
+            <h2 allign ="center">Projects</h2>
+            <div class="projects-container">
+                <div class="project-left">
+                    <h3>Early Breast Cancer Detection Using Nanoparticle Sensor and Machine Learning Algorithms</h3>
+                    <p>Presented at IEEE CONIT 2024, organized by IEEE Bangalore Section from June 21st to 23rd, 2024.</p>
+                    <p>Collaborated with a team of 3 to develop a website for early breast cancer detection.</p>
+                    <p>Developed a machine learning model to identify patterns in nanoparticle sensor and urine sample databases.</p>
+                    <p>Integrated the website using Flask.</p>                </div>
+                <div class="divider"></div>
+                <div class="project-right">
+                    <h3>Fraud Detection Using Machine Learning Algorithms</h3>
+                    <p>Developed a machine learning model for detecting fraudulent activities and enhancing security.</p>
+                    <p>Utilized Scikit-learn and TensorFlow to build and deploy the model, ensuring data proficiency and accuracy.</p>
+                    <p>Implemented advanced algorithms for real-time fraud detection.</p>               </div>
+            </div>
+        </section>
+    
+        
+        <footer>
+            <div class="contact-info">
+                <p>Contact: +91-9515731011</p>
+                <p>Email: Charishma497@gmail.com</p>
+            </div>
+        </footer>
+    </main>
+
+    
+
+    <script>
+        // Function to add 'visible' class for animations when in viewport
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('.section');
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                } else {
+                    section.classList.remove('visible');
+                }
+            });
+        }
+        // Add hover effect to tech icons
+const techIcons = document.querySelectorAll('.tech-icon');
+techIcons.forEach(icon => {
+    icon.addEventListener('mouseover', () => {
+        icon.style.transform = 'scale(1.1)';
+        icon.style.transition = 'transform 0.3s ease';
+    });
+    icon.addEventListener('mouseout', () => {
+        icon.style.transform = 'scale(1)';
+    });
+});
+
+        // Initial check
+        animateOnScroll();
+
+        // Add event listener for scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

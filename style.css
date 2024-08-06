@@ -1,0 +1,152 @@
+body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F2D4CC;
+}
+
+header {
+    background: #FFD872;
+    padding: 10px 0;
+    border-bottom: 1px solid #E77577;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6C88C4;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Center-align icons and text vertically */
+}
+
+nav ul li {
+    margin-left: 20px;
+    position: relative; /* Position icons properly */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: #FC6238;
+}
+
+.icon {
+    width: 16px; /* Reduced size of the icons */
+    height: 16px; /* Reduced size of the icons */
+    vertical-align: middle; /* Align icons with text */
+}
+
+#home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 40px 40px;
+    background-color: #FC6238;
+    color: #FFFFFF;
+}
+
+.content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFD872;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #E77577;
+}
+
+.image-container {
+    flex: 1;
+    text-align: center;
+}
+
+.image-container img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.section {
+    padding: 40px;
+}
+
+.section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #6C88C4;
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background: #FFD872;
+    padding: 20px 0;
+    border-top: 1px solid #E77577;
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 16px;
+    color: #6C88C4;
+}
+
+/* Animations */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
